@@ -4,14 +4,13 @@ package statuserrors
 var _ StatusError = (*statusError)(nil)
 
 type StatusError interface {
-	Code() int
-	Data() interface{}
+	StatusCode() int
 }
 
-// New Status Error , http is http status code, message is error reason
-func New(httpcode int, message string) error {
+// New Status Error , code is http status code or status errors code, message is error reason
+func New(code int, message string) *statusError {
 	e := &statusError{
-		code:    httpcode,
+		code:    code,
 		message: message,
 	}
 
@@ -33,11 +32,12 @@ func (e *statusError) Error() string {
 }
 
 // Code return error code
-func (e *statusError) Code() int {
+func (e *statusError) StatusCode() int {
 	return e.code
 }
 
 // Data return error data
-func (e *statusError) Data() interface{} {
-	return e.message
-}
+// func (e *statusError) Message() string {
+// 	// return e.message
+// 	return e.Error()
+// }

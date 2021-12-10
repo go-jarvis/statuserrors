@@ -8,7 +8,7 @@ func (e *statusError) Unwrap() error {
 }
 
 // Wrap return a new errors with origin error and new error code state
-func Wrap(err error, code int, message string) error {
+func Wrap(err error, code int, message string) *statusError {
 	return &statusError{
 		code:    code,
 		message: message,

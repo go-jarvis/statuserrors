@@ -32,11 +32,11 @@ func (jm *message) stringify() string {
 }
 
 const (
-	StatusUnknownReason = 999
+	StatusUnknownError = 999
 )
 
 var statusText = map[int]string{
-	999: "Unknown Reason",
+	999: "Unknown Error",
 }
 
 // StatusText returns a text for the HTTP status code.  Or text for status errors code.
