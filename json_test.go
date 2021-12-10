@@ -1,4 +1,4 @@
-package statuserrors
+package httpcodeerrors
 
 import (
 	"fmt"

@@ -1,4 +1,4 @@
-package statuserrors
+package httpcodeerrors
 
 import (
 	"net/http"
@@ -14,6 +14,7 @@ func New(httpcode int, data interface{}) error {
 	return e
 }
 
+// statusError define an error struct with httpcode
 type statusError struct {
 	err  error
 	code int
