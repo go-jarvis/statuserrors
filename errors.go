@@ -4,6 +4,11 @@ import (
 	"net/http"
 )
 
+type StatusError interface {
+	HttpCode() int
+	Data() interface{}
+}
+
 // New Status Error , http is http status code, data is message to reply
 func New(httpcode int, data interface{}) error {
 	e := &statusError{
@@ -41,9 +46,4 @@ func (e *statusError) Code() int {
 // Data return error data
 func (e *statusError) Data() interface{} {
 	return e.data
-}
-
-type StatusError interface {
-	HttpCode() int
-	Data() interface{}
 }

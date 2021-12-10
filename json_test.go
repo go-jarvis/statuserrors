@@ -1,6 +1,7 @@
 package httpcodeerrors
 
 import (
+	"errors"
 	"fmt"
 	"net/http"
 	"testing"
@@ -22,4 +23,15 @@ func Test_JsonStringify(t *testing.T) {
 	fmt.Println(jm)
 	s := jm.stringify()
 	fmt.Println(s)
+}
+
+func Test_ErrorWrap(t *testing.T) {
+	err := newError()
+
+	err = errors.Unwrap(err)
+	fmt.Println(err)
+}
+
+func newError() error {
+	return errors.New("error")
 }
