@@ -1,9 +1,5 @@
 package httpcodeerrors
 
-import (
-	"net/http"
-)
-
 type StatusError interface {
 	HttpCode() int
 	Data() interface{}
@@ -28,11 +24,7 @@ type statusError struct {
 
 // Error return json format string
 func (e *statusError) Error() string {
-	jm := jsonMessage{
-		Code:    e.code,
-		Reason:  http.StatusText(e.code),
-		Message: e.data,
-	}
+	jm := newMessage(e.code, e.data)
 
 	return jm.stringify()
 }
