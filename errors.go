@@ -8,11 +8,11 @@ type StatusError interface {
 	Data() interface{}
 }
 
-// New Status Error , http is http status code, data is message to reply
-func New(httpcode int, data interface{}) error {
+// New Status Error , http is http status code, message is error reason
+func New(httpcode int, message string) error {
 	e := &statusError{
-		code: httpcode,
-		data: data,
+		code:    httpcode,
+		message: message,
 	}
 
 	return e
@@ -20,16 +20,16 @@ func New(httpcode int, data interface{}) error {
 
 // statusError define an error struct with httpcode
 type statusError struct {
-	err  error
-	code int
-	data interface{}
+	err     error
+	code    int
+	message string
 }
 
 // Error return json format string
 func (e *statusError) Error() string {
-	jm := newMessage(e.code, e.data)
+	msg := newMessage(e.code, e.message)
 
-	return jm.stringify()
+	return msg.stringify()
 }
 
 // Code return error code
@@ -39,5 +39,5 @@ func (e *statusError) Code() int {
 
 // Data return error data
 func (e *statusError) Data() interface{} {
-	return e.data
+	return e.message
 }

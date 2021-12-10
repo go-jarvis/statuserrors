@@ -10,7 +10,7 @@ func newMessage(code int, data interface{}) *message {
 
 	m := &message{
 		Code:    strconv.Itoa(code),
-		Reason:  http.StatusText(code),
+		Reason:  StatusText(code),
 		Message: data,
 	}
 
@@ -29,4 +29,21 @@ func (jm *message) stringify() string {
 		panic(err)
 	}
 	return string(b)
+}
+
+const (
+	StatusUnknownReason = 999
+)
+
+var statusText = map[int]string{
+	999: "Unknown Reason",
+}
+
+// StatusText returns a text for the HTTP status code.  Or text for status errors code.
+func StatusText(code int) string {
+	if s := http.StatusText(code); s != "" {
+		return s
+	}
+
+	return statusText[code]
 }

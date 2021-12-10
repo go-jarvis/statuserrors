@@ -1,7 +1,7 @@
 package statuserrors
 
 import (
-	"errors"
+	stderrors "errors"
 	"fmt"
 	"net/http"
 	"testing"
@@ -30,9 +30,11 @@ func Test_ErrorWrap(t *testing.T) {
 	err = Wrap(err, http.StatusNotFound, "balalalla")
 	fmt.Println(err)
 
-	err = errors.Unwrap(err)
+	err = stderrors.Unwrap(err)
 	fmt.Println(err)
 
+	// pkgerr := pkgerrors.New("123")
+	// pkgerrors.Wrap()
 }
 
 func newError(code int, str string) error {
