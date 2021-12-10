@@ -30,12 +30,11 @@ type statusError struct {
 func (e *statusError) Error() string {
 	jm := jsonMessage{
 		Code:    e.code,
-		Brief:   http.StatusText(e.code),
+		Reason:  http.StatusText(e.code),
 		Message: e.data,
 	}
 
 	return jm.stringify()
-
 }
 
 // Code return error code

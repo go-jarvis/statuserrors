@@ -2,18 +2,15 @@ package httpcodeerrors
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 type jsonMessage struct {
 	Code    int         `json:"code"`
-	Brief   string      `json:"brief"`
+	Reason  string      `json:"reason"`
 	Message interface{} `json:"message"`
 }
 
-func (jm *jsonMessage) stringify() string {
-	fmt.Println(jm)
-	// b, _ := json.MarshalIndent(&jm, "", "")
+func (jm jsonMessage) stringify() string {
 	b, err := json.Marshal(jm)
 	if err != nil {
 		panic(err)
