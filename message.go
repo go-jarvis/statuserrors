@@ -1,4 +1,4 @@
-package httpcodeerrors
+package statuserrors
 
 import (
 	"encoding/json"

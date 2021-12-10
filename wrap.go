@@ -1,4 +1,4 @@
-package httpcodeerrors
+package statuserrors
 
 import "errors"
 
@@ -8,7 +8,7 @@ func (e *statusError) Unwrap() error {
 }
 
 // Wrap return a new errors with origin error and new error code state
-func Wrap(code int, data interface{}, err error) error {
+func Wrap(err error, code int, data interface{}) error {
 	return &statusError{
 		code: code,
 		data: data,

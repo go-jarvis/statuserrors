@@ -1,4 +1,4 @@
-package httpcodeerrors
+package statuserrors
 
 import (
 	"errors"
@@ -27,7 +27,7 @@ func Test_ErrorWrap(t *testing.T) {
 	err := newError(200, "success")
 	fmt.Println(err)
 
-	err = Wrap(http.StatusNotFound, "balalalla", err)
+	err = Wrap(err, http.StatusNotFound, "balalalla")
 	fmt.Println(err)
 
 	err = errors.Unwrap(err)

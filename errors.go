@@ -1,7 +1,10 @@
-package httpcodeerrors
+package statuserrors
+
+// interface checking
+var _ StatusError = (*statusError)(nil)
 
 type StatusError interface {
-	HttpCode() int
+	Code() int
 	Data() interface{}
 }
 
