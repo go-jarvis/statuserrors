@@ -1,6 +1,8 @@
 package statuserrors
 
-import "errors"
+import (
+	stderr "errors"
+)
 
 // Unwrap return error in httpcode errors
 func (e *statusError) Unwrap() error {
@@ -18,15 +20,15 @@ func Wrap(err error, code int, message string) *statusError {
 
 // Unwrap method is short for Unrap() in std libray
 func Unwrap(err error) error {
-	return errors.Unwrap(err)
+	return stderr.Unwrap(err)
 }
 
 // Is method is short for Is() in std library
 func Is(err, target error) bool {
-	return errors.Is(err, target)
+	return stderr.Is(err, target)
 }
 
 // As method is short for As() in std library
 func As(err error, target interface{}) bool {
-	return errors.As(err, target)
+	return stderr.As(err, target)
 }

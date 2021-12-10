@@ -35,9 +35,3 @@ func (e *statusError) Error() string {
 func (e *statusError) StatusCode() int {
 	return e.code
 }
-
-// Data return error data
-// func (e *statusError) Message() string {
-// 	// return e.message
-// 	return e.Error()
-// }
