@@ -5,6 +5,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+# [0.1.3](https://github.com/go-jarvis/statuserrors/compare/v0.1.2...v0.1.3)
+
+### Bug Fixes
+
+* **fix** wrap args type error ([bd12e75](https://github.com/go-jarvis/statuserrors/commit/bd12e75d13e623d4d7ecf70a25256ba563c1a63c))
+
+
+
 # [0.1.2](https://github.com/go-jarvis/statuserrors/compare/v0.1.1...v0.1.2)
 
 ### Bug Fixes
