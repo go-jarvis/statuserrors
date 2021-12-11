@@ -2,6 +2,7 @@ package statuserrors
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"strconv"
 )
@@ -26,7 +27,7 @@ type message struct {
 func (jm *message) stringify() string {
 	b, err := json.Marshal(jm)
 	if err != nil {
-		panic(err)
+		return fmt.Sprint(jm)
 	}
 	return string(b)
 }

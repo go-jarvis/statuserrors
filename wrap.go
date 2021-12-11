@@ -2,6 +2,7 @@ package statuserrors
 
 import (
 	stderr "errors"
+	"fmt"
 )
 
 // Unwrap return error in httpcode errors
@@ -10,10 +11,10 @@ func (e *statusError) Unwrap() error {
 }
 
 // Wrap return a new errors with origin error and new error code state
-func Wrap(err error, code int, message string) *statusError {
+func Wrap(err error, code int, format string, messages ...string) *statusError {
 	return &statusError{
 		code:    code,
-		message: message,
+		message: fmt.Sprintf(format, messages),
 		err:     err,
 	}
 }
