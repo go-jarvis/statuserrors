@@ -5,6 +5,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+# [0.1.2](https://github.com/go-jarvis/statuserrors/compare/v0.1.1...v0.1.2)
+
+### Bug Fixes
+
+* **fix** some errors ([e89ffab](https://github.com/go-jarvis/statuserrors/commit/e89ffabe2f60c4727f411c2416b2faea0a041352))
+
+
+
 # [0.1.1](https://github.com/go-jarvis/statuserrors/compare/v0.1.0...v0.1.1)
 
 ### Bug Fixes
