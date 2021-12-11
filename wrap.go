@@ -11,10 +11,10 @@ func (e *statusError) Unwrap() error {
 }
 
 // Wrap return a new errors with origin error and new error code state
-func Wrap(err error, code int, format string, messages ...string) *statusError {
+func Wrap(err error, code int, format string, a ...interface{}) *statusError {
 	return &statusError{
 		code:    code,
-		message: fmt.Sprintf(format, messages),
+		message: fmt.Sprintf(format, a...),
 		err:     err,
 	}
 }
